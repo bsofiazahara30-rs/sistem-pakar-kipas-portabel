@@ -1,0 +1,78 @@
+:root{--bg:#e9f3f4;--sf:#fff;--tint:#f3f9fa;--sel:#dff1f2;--tx:#10262a;--mu:#52686c;--ac:#0b6e78;--acd:#06454c;--hi:#f26b21;--bd:#cde0e2;--ok:#1b7f3b;--er:#b42318;--erbg:#fdecea;--sh:0 1px 2px rgba(6,69,76,.08),0 6px 18px rgba(6,69,76,.07);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1618;--sf:#132426;--tint:#0f1d1f;--sel:#17393d;--tx:#e4f0ef;--mu:#93aaa8;--ac:#4cc3cd;--acd:#032f35;--hi:#ff9150;--bd:#25393b;--ok:#5fd486;--er:#ff8a80;--erbg:#3a1815;--sh:none}}
+:root[data-theme="dark"]{--bg:#0b1618;--sf:#132426;--tint:#0f1d1f;--sel:#17393d;--tx:#e4f0ef;--mu:#93aaa8;--ac:#4cc3cd;--acd:#032f35;--hi:#ff9150;--bd:#25393b;--ok:#5fd486;--er:#ff8a80;--erbg:#3a1815;--sh:none}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+
+/* Header */
+.top{background:linear-gradient(135deg,#06454c,#0b6e78);color:#fff}
+.top-in{max-width:920px;margin:0 auto;padding:22px 18px 26px;display:flex;gap:16px;align-items:center}
+.top h1{font:700 1.35rem/1.3 Georgia,"Times New Roman",serif;margin:0 0 6px;letter-spacing:.1px}
+.top .sub{margin:0;color:#cbe7ea;font-size:.95rem}
+.fan{width:64px;height:64px;flex:none;fill:#fff}
+.fan .spin{transform-origin:32px 32px;animation:spin 5s linear infinite}
+.fan circle{fill:var(--hi)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+main{max-width:920px;margin:0 auto;padding:16px 16px 40px}
+h2{font:700 1.25rem Georgia,serif;margin:0 0 10px;color:var(--ac)}
+.sub{color:var(--mu)}
+p{margin:.4em 0 .8em}
+
+/* Tab sebagai kontrol segmen */
+nav{display:flex;gap:4px;padding:4px;background:var(--sf);border:1px solid var(--bd);border-radius:14px;box-shadow:var(--sh);margin:-34px 0 16px;position:sticky;top:8px;z-index:5}
+nav button{flex:1;font:inherit;font-weight:600;padding:10px 8px;border:0;border-radius:10px;background:transparent;color:var(--mu);cursor:pointer;transition:background .15s,color .15s}
+nav button:hover{color:var(--ac)}
+nav button.on{background:var(--ac);color:#fff}
+
+/* Kartu */
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:20px;margin:14px 0;box-shadow:var(--sh)}
+#intro{padding:28px 22px;border-left:6px solid var(--hi)}
+#intro h2{font-size:1.5rem}
+#intro p{max-width:60ch;color:var(--mu)}
+
+/* Tombol */
+.btn{font:inherit;font-weight:700;padding:12px 22px;border-radius:12px;border:2px solid var(--ac);background:transparent;color:var(--ac);cursor:pointer;transition:transform .1s,background .15s}
+.btn.p{background:var(--ac);color:#fff}
+.btn.p:hover{background:var(--acd)}
+.btn:active{transform:translateY(1px)}
+#run{width:100%;margin-top:6px;padding:14px}
+#again{margin:6px 0 12px}
+button:focus-visible,input:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+
+/* Form gejala: kartu yang bisa disentuh */
+#qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px;margin:12px 0}
+label.f{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1.5px solid var(--bd);border-radius:12px;background:var(--tint);cursor:pointer;transition:border-color .15s,background .15s}
+label.f:hover{border-color:var(--ac)}
+label.f:has(input:checked){border-color:var(--ac);background:var(--sel);box-shadow:inset 4px 0 0 var(--ac)}
+label.f b{color:var(--ac);min-width:34px}
+label.f span{line-height:1.4}
+input[type=checkbox]{width:20px;height:20px;margin-top:1px;accent-color:var(--ac);flex:none}
+.err{color:var(--er);font-weight:600;margin:8px 0;padding:0}
+.err:not(:empty){background:var(--erbg);border-left:5px solid var(--er);padding:10px 12px;border-radius:8px}
+
+/* Hasil diagnosis */
+.dx{border:1px solid var(--bd);border-left:7px solid var(--ac);background:var(--tint);border-radius:12px;padding:14px 16px;margin:12px 0}
+.dx h3{margin:0 0 4px;font-size:1.1rem}
+.dx p{margin:0}
+.dx.w{border-color:var(--er);border-left-color:var(--er);background:var(--erbg)}
+.dx.w h3{color:var(--er)}
+ul{padding-left:20px}
+li{margin:4px 0}
+code{background:var(--tint);padding:1px 6px;border-radius:5px}
+
+/* Tabel */
+.tw{overflow-x:auto;border:1px solid var(--bd);border-radius:12px;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:520px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--bd)}
+th{background:var(--sel);color:var(--ac);font-weight:700;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even) td,table tr:nth-child(even) td{background:var(--tint)}
+.ok{color:var(--ok);font-weight:700}.bad{color:var(--er);font-weight:700}
+
+.hide{display:none}
+footer{max-width:920px;margin:0 auto;padding:0 18px 28px;text-align:center;color:var(--mu);font-size:.85rem}
+
+@media (max-width:560px){.top-in{padding:18px 14px 24px;gap:12px}.fan{width:48px;height:48px}.top h1{font-size:1.1rem}.card{padding:16px}nav button{font-size:.9rem}#qs{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.fan .spin{animation:none}*{transition:none!important}}
